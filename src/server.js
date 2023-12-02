@@ -1,5 +1,6 @@
 var express = require("express")
 var app = express()
+const path = require('path');
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('database.db');
 
@@ -45,6 +46,18 @@ app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
 });
 
+//frontend
+app.get("/app", (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'ui', 'gameboard.html'))
+});
+
+app.get("/css/:file", (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'ui', 'css', req.params.file))
+});
+
+app.get("/js/:file", (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'ui', 'js', req.params.file))
+});
 
 // Default response for any other request
 app.use(function(req, res){

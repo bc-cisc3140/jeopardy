@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SAMPLE</title>
+    <meta name="description" content="Page Description" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <ul>
+      <li>Topic</li>
+      <li>100</li>
+      <li>200</li>
+      <li>300</li>
+      <li>400</li>
+      <li>500</li>
+    </ul>
+    <ul>
+      <li>History of Computing</li>
+      <li>100<div class="question">The year Windows 95 was released.</div></li>
+      <li>200<div class="question">The first form of external digital file storage.</div></li>
+      <li>300<div class="question">The year JavaScript became available</div></li>
+      <li>400<div class="question">The decade UNIX became available</div></li>
+      <li>500<div class="question">Intentionally left blank</div></li>
+    </ul>
+    <ul>
+      <li>BC CIS</li>
+      <li>100<div class="question">The language taught in the Intro Programming Sequence</li>
+      <li>200<div class="question">CIS Office Location (name the building)</li>
+      <li>300<div class="question">CIS Office Room Number</div></li>
+      <li>400<div class="question">Intentionally left blank</div></li>
+      <li>500<div class="question">Intentionally left blank</div></li>
+    </ul>
+
+    <div id="fruits"></div>
+
+  </body>
+</html>
+
+<script type="text/javascript" src="js/questions.js"></script>
+
+<script>
+var items = document.getElementsByTagName("li");
+for (var i = 0; i < items.length; i++) {
+  items[i].addEventListener("click",function(e) {
+  if(e.target.children.length > 0){
+    console.log("display content");
+    e.target.children[0].classList.add('fullscreen');
+  } else {
+    console.log("closed content");
+    e.target.classList.remove('fullscreen');
+  }
+
+  
+} );}
+
+showQuestions();
+</script>
