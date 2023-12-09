@@ -1,65 +1,28 @@
-var express = require("express")
-var app = express()
-const path = require('path');
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('database.db');
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
+const app = express();
+app.use(cors());
+app.use(express.static('public'));
 
-// Server port
-var HTTP_PORT = 8000 
-
-// Start server
-app.listen(HTTP_PORT, () => {
-    console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
+const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Connected to the jeopardy database.');
 });
 
-app.get("/api/fruits", (req, res, next) => {
-  var sql = "select * from fruits"
-  db.all(sql, [], (err, rows) => {
+app.get('/get-question', (req, res) => {
+  const qid = req.query.id;
+  db.get('SELECT prompt FROM jeopardy WHERE qid = ?', [qid], (err, row) => {
     if (err) {
-      res.status(400).json({"error":err.message});
-      return;
+      return res.status(500).json({ error: err.message });
     }
-    res.json({
-      "message":"success",
-      "data":rows
-    })
+    res.json(row);
   });
 });
 
-app.get("/api/fruit/:id", (req, res, next) => {
-    var sql = "select * from fruits where id = ?"
-    var params = [req.params.id]
-    db.get(sql, params, (err, row) => {
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
-        }
-        res.json({
-            "message":"success",
-            "data":row
-        })
-      });
-});
-
-// Root endpoint
-app.get("/", (req, res, next) => {
-    res.json({"message":"Ok"})
-});
-
-//frontend
-app.get("/app", (req, res, next) => {
-    res.sendFile(path.join(__dirname, 'ui', 'gameboard.html'))
-});
-
-app.get("/css/:file", (req, res, next) => {
-    res.sendFile(path.join(__dirname, 'ui', 'css', req.params.file))
-});
-
-app.get("/js/:file", (req, res, next) => {
-    res.sendFile(path.join(__dirname, 'ui', 'js', req.params.file))
-});
-
-// Default response for any other request
-app.use(function(req, res){
-    res.status(404);
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
