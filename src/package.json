@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
-    "proxy": "http://localhost:8000"
+    "sqlite3": "^5.1.6"
   }
+
 }
