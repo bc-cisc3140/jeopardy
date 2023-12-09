@@ -1,21 +1,16 @@
--- Sample sql file for creating tables and inserting records
+DROP TABLE IF EXISTS jeopardy;
 
-CREATE TABLE fruits (
-  id INTEGER,
-  name TEXT,
-  color TEXT
+CREATE TABLE jeopardy (
+    qid INTEGER PRIMARY KEY AUTOINCREMENT,
+    topic TEXT,
+    level INTEGER,
+    prompt TEXT,
+    answer TEXT
 );
+/*Sample questions for testing, will add more overtime*/
+INSERT INTO jeopardy (topic, level, prompt, answer) VALUES
+('Software Types', 100, 'This kind of software is made for end users, typically for business applications.', 'What are software applications?'),
+('Historical Events', 200, 'This event occurred on July 20, 1969.', 'What is the moon landing?'),
+('Historical Events', 300, 'This event occurred on July 20, 1969.', 'What is the moon landing?');
 
-CREATE TABLE vegetables (
-  id INTEGER,
-  name TEXT,
-  color TEXT
-);
-
-INSERT INTO fruits VALUES (1, 'banana', 'yellow');
-INSERT INTO fruits (id, name, color) VALUES (2, 'pomogranate', 'red');
-INSERT INTO fruits (id, name, color) VALUES (3, 'blueberries', 'blue');
-
-INSERT INTO vegetables (id, name, color) VALUES (1, 'carrot', 'orange');
-INSERT INTO vegetables (id, name, color) VALUES (2, 'spinach', 'green');
-INSERT INTO vegetables (id, name, color) VALUES (3, 'cauliflower', 'white');
+SELECT * FROM jeopardy;
