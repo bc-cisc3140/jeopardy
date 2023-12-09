@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.static('public')); // Serves files from 'public' as static files
 
-const db = new sqlite3.Database('C:\\Users\\nicho\\OneDrive\\Desktop\\Projects\\Jeopardy\\jeopardy.db', sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error(err.message);
     }
