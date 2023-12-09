@@ -27,7 +27,7 @@ app.get('/get-question', (req, res) => {
 
 // Route for serving the homepage
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'gameboard.html'));
+  res.sendFile(path.join(__dirname, 'ui', 'gameboard.html'));
 });
 
 const PORT = 8000;
