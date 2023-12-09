@@ -5,7 +5,7 @@ const path = require('path'); // Make sure to require the path module
 
 const app = express();
 app.use(cors());
-app.use(express.static('public')); // Serves files from 'public' as static files
+app.use(express.static('ui')); // Serves files from 'ui' as static files
 
 const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
