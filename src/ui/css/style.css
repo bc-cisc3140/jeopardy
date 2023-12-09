@@ -1,26 +1,46 @@
-/* sample css */ 
-body {
-  display: flex; 
-  flex-direction: row;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 16px;
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-right: 10px;
-  padding: 0;
-  text-align: center; 
-  width: calc(15%);
+/* not implemented yet*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-li { 
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
+/* not implemented yet*/
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
-li:not(:first-child) {
-  border: 1px solid blue; 
-  height:150px; align-items:center;
+/* not implemented yet*/
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* not implemented yet*/
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
