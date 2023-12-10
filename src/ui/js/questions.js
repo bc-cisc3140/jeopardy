@@ -7,7 +7,7 @@ document.querySelectorAll('.jeopardy-square').forEach(square => {
 
 //Retrieve the question to input into the modal
 function fetchQuestion(questionId) {
-  fetch(`http://localhost:3000/get-question?id=${questionId}`)
+  fetch(`http://localhost:8000/get-question?id=${questionId}`)
       .then(response => response.json())
       .then(questionData => {
           showQuestionModal(questionData.prompt);
