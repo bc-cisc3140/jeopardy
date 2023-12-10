@@ -73,3 +73,7 @@ transition: background-color 0.3s ease;
     justify-content: center;
 }
 
+.used {
+    background-color: rgb(31, 31, 82);
+}
+

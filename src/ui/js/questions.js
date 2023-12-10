@@ -3,6 +3,7 @@ let currentQuestionId;
 
 document.querySelectorAll(".jeopardy-square").forEach((square) => {
   square.addEventListener("click", function () {
+    square.classList.add("used");
     const questionId = this.dataset.questionId;
     currentQuestionId = questionId; // Set the current question ID
     fetchQuestion(questionId); // Fetch question ID
