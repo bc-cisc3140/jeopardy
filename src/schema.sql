@@ -31,3 +31,26 @@ VALUES (1, 200, 'Q1', 'A1'),
 (1, 200, 'Q2', 'A2'),
 (1, 200, 'Q2', 'A2');
 
+-- Create the user and scores tables
+CREATE TABLE IF NOT EXISTS users (
+user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+username TEXT
+);
+
+CREATE TABLE IF NOT EXISTS scores (
+score_id INTEGER PRIMARY KEY AUTOINCREMENT,
+user_id INTEGER,
+score INTEGER,
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+
+--Insert two users and two scores for the two users
+INSERT INTO users(user_id)
+VALUES (1),
+       (2);
+
+INSERT INTO scores(user_id, score)
+values (1,0),
+       (2,0);
+
+
