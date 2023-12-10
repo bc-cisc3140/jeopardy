@@ -9,12 +9,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <a href="page1.html">Go back to Page 1</a>
     <button onclick="resetButtons()">Reset</button>
     <div class="score-display">
       Score: <span id="score">0</span>
     </div>
-  
+
     <div class="jeopardy-board">
       <!-- Category 1 -->
       <div class="category">Pattern Matching</div>
@@ -27,57 +26,71 @@
       </ul>
   
       <!-- Category 2 -->
-    <div class="category">Unix</div>
-    <ul class="points-list">
-      <li><button class="point-btn" data-category="Unix" data-points="100" onclick="hideButton(this)">100</button></li>
-      <li><button class="point-btn" data-category="Unix" data-points="200" onclick="hideButton(this)">200</button></li>
-      <li><button class="point-btn" data-category="Unix" data-points="300" onclick="hideButton(this)">300</button></li>
-      <li><button class="point-btn" data-category="Unix" data-points="400" onclick="hideButton(this)">400</button></li>
-      <li><button class="point-btn" data-category="Unix" data-points="500" onclick="hideButton(this)">500</button></li>
-    </ul>
+      <div class="category">Unix</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Unix" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
   
-    <!-- Category 3 -->
-    <div class="category">History of Computing</div>
-    <ul class="points-list">
-      <li><button class="point-btn" data-category="History of Computing" data-points="100" onclick="hideButton(this)">100</button></li>
-      <li><button class="point-btn" data-category="History of Computing" data-points="200" onclick="hideButton(this)">200</button></li>
-      <li><button class="point-btn" data-category="History of Computing" data-points="300" onclick="hideButton(this)">300</button></li>
-      <li><button class="point-btn" data-category="History of Computing" data-points="400" onclick="hideButton(this)">400</button></li>
-      <li><button class="point-btn" data-category="History of Computing" data-points="500" onclick="hideButton(this)">500</button></li>
-    </ul>
+      <!-- Category 3 -->
+      <div class="category">History of Computing</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="History of Computing" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
   
-    <!-- Category 4 -->
-    <div class="category">GNU Make</div>
-    <ul class="points-list">
-      <li><button class="point-btn" data-category="GNU Make" data-points="100" onclick="hideButton(this)">100</button></li>
-      <li><button class="point-btn" data-category="GNU Make" data-points="200" onclick="hideButton(this)">200</button></li>
-      <li><button class="point-btn" data-category="GNU Make" data-points="300" onclick="hideButton(this)">300</button></li>
-      <li><button class="point-btn" data-category="GNU Make" data-points="400" onclick="hideButton(this)">400</button></li>
-      <li><button class="point-btn" data-category="GNU Make" data-points="500" onclick="hideButton(this)">500</button></li>
-    </ul>
+      <!-- Category 4 -->
+      <div class="category">GNU Make</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="GNU Make" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
 
-    <!-- Category 5 -->
-    <div class="category">Terminal</div>
-    <ul class="points-list">
-      <li><button class="point-btn" data-category="Terminal" data-points="100" onclick="hideButton(this)">100</button></li>
-      <li><button class="point-btn" data-category="Terminal" data-points="200" onclick="hideButton(this)">200</button></li>
-      <li><button class="point-btn" data-category="Terminal" data-points="300" onclick="hideButton(this)">300</button></li>
-      <li><button class="point-btn" data-category="Terminal" data-points="400" onclick="hideButton(this)">400</button></li>
-      <li><button class="point-btn" data-category="Terminal" data-points="500" onclick="hideButton(this)">500</button></li>
-    </ul>
+      <!-- Category 5 -->
+      <div class="category">Terminal</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Terminal" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
 
-    <!-- Category 6 -->
-    <div class="category">SQL</div>
-    <ul class="points-list">
-        <li><button class="point-btn" data-category="SQL" data-points="100" onclick="hideButton(this)">100</button></li>
-        <li><button class="point-btn" data-category="SQL" data-points="200" onclick="hideButton(this)">200</button></li>
-        <li><button class="point-btn" data-category="SQL" data-points="300" onclick="hideButton(this)">300</button></li>
-        <li><button class="point-btn" data-category="SQL" data-points="400" onclick="hideButton(this)">400</button></li>
-        <li><button class="point-btn" data-category="SQL" data-points="500" onclick="hideButton(this)">500</button></li>
-    </ul>
+      <!-- Category 6 -->
+      <div class="category">SQL</div>
+      <ul class="points-list">
+          <li><button class="point-btn" data-category="SQL" data-points="100" onclick="hideButton(this)">100</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="200" onclick="hideButton(this)">200</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="300" onclick="hideButton(this)">300</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="400" onclick="hideButton(this)">400</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  </div>
 
-
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <h2 class="questionTitle", id="questionCatagory"></h2>
+      <h2 class="questionPoint", id="questionPoint"></h2>
+      <h1 class="question" id="questionText"></h1>
+      <div id="answerOptions" class="answer-options">
+        <!-- Answer buttons will be inserted here -->
+      </div>
+      <h1 id="resultMessage"></h1>
+      <button id="closeButton" style="display: none;" onclick="closeModal()">Close</button>
     </div>
+  </div>
+  
     <script src="app.js"></script>
   </body>
 </html>

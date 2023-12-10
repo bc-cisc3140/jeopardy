@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
+CORS(app) # Enable CORS for all routes
 
 # Endpoint to get a question based on category and points
 @app.route('/get-question/<category>/<points>', methods=['GET'])
@@ -33,4 +35,4 @@ def get_question(category, points):
 # Other endpoints and logic for checking user's answers, updating score, etc.
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)

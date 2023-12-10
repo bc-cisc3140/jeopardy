@@ -21,6 +21,7 @@ body {
   text-align: center;
   font-weight: bold;
   border-radius: 5px;
+  font-size: 24px;
   grid-row: 1; /* Categories in the first row */
 }
 
@@ -49,6 +50,7 @@ body {
   min-width: 0; /* Reset min-width */
   min-height: 0; /* Reset min-height */
   transition: background-color 0.3s ease;
+  font-size: 24px;
 }
 
 .point-btn:hover {
@@ -63,30 +65,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: top;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the answer input and submit button */
-#answer {
-  padding: 8px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-  padding: 8px 15px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #2980b9;
 }
 
 /* Style the score display */
@@ -96,4 +76,75 @@ button[type="submit"]:hover {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 80px;
+  background-color: #bfd6e8; /* Change the modal background color */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  text-align: center;
+}
+
+/* Style for the answer buttons */
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.answer-button {
+  background-color: #9dc9ed;
+  margin: 5px 0;
+  padding: 8px 15px;
+  cursor: pointer;
+  width: auto;
+  text-align: left;
+  font-size: 30px;
+}
+
+/* Additional style for the question and result message */
+.question {
+  background-color: #9dc9ed;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.questionTitle {
+  background-color: #3699ea;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.questionPoint{
+  background-color: #3699ea;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#resultMessage {
+  margin-top: 10px;
+  text-align: left;
 }
