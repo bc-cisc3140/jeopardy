@@ -14,7 +14,7 @@ html, body {
     color: yellow;
     border: 2px solid black;
     text-align: center;
-    height: 5.4em;
+    height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
