@@ -31,13 +31,14 @@ li {
 }
 
 li:not(:first-child) {
-  height:150px;
+  height: 50px;
   align-items:center;
   font-size: 80px;
   -webkit-text-stroke-color: rgb(128,95,26);
   -webkit-text-stroke-width: 1.2px;
 }
 li:first-child{
+  height: 40px;
   color: white;
   font-size: 40px;
   margin-bottom: 2%;
