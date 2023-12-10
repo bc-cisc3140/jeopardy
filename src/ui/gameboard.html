@@ -3,58 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>SAMPLE</title>
+    <title>Jeopardy Game</title>
     <meta name="description" content="Page Description" />
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <ul>
-      <li>Topic</li>
-      <li>100</li>
-      <li>200</li>
-      <li>300</li>
-      <li>400</li>
-      <li>500</li>
+    <a href="page1.html">Go back to Page 1</a>
+    <button onclick="resetButtons()">Reset</button>
+    <div class="score-display">
+      Score: <span id="score">0</span>
+    </div>
+  
+    <div class="jeopardy-board">
+      <!-- Category 1 -->
+      <div class="category">Pattern Matching</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  
+      <!-- Category 2 -->
+    <div class="category">Unix</div>
+    <ul class="points-list">
+      <li><button class="point-btn" data-category="Unix" data-points="100" onclick="hideButton(this)">100</button></li>
+      <li><button class="point-btn" data-category="Unix" data-points="200" onclick="hideButton(this)">200</button></li>
+      <li><button class="point-btn" data-category="Unix" data-points="300" onclick="hideButton(this)">300</button></li>
+      <li><button class="point-btn" data-category="Unix" data-points="400" onclick="hideButton(this)">400</button></li>
+      <li><button class="point-btn" data-category="Unix" data-points="500" onclick="hideButton(this)">500</button></li>
     </ul>
-    <ul>
-      <li>History of Computing</li>
-      <li>100<div class="question">The year Windows 95 was released.</div></li>
-      <li>200<div class="question">The first form of external digital file storage.</div></li>
-      <li>300<div class="question">The year JavaScript became available</div></li>
-      <li>400<div class="question">The decade UNIX became available</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
+  
+    <!-- Category 3 -->
+    <div class="category">History of Computing</div>
+    <ul class="points-list">
+      <li><button class="point-btn" data-category="History of Computing" data-points="100" onclick="hideButton(this)">100</button></li>
+      <li><button class="point-btn" data-category="History of Computing" data-points="200" onclick="hideButton(this)">200</button></li>
+      <li><button class="point-btn" data-category="History of Computing" data-points="300" onclick="hideButton(this)">300</button></li>
+      <li><button class="point-btn" data-category="History of Computing" data-points="400" onclick="hideButton(this)">400</button></li>
+      <li><button class="point-btn" data-category="History of Computing" data-points="500" onclick="hideButton(this)">500</button></li>
     </ul>
-    <ul>
-      <li>BC CIS</li>
-      <li>100<div class="question">The language taught in the Intro Programming Sequence</li>
-      <li>200<div class="question">CIS Office Location (name the building)</li>
-      <li>300<div class="question">CIS Office Room Number</div></li>
-      <li>400<div class="question">Intentionally left blank</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
+  
+    <!-- Category 4 -->
+    <div class="category">GNU Make</div>
+    <ul class="points-list">
+      <li><button class="point-btn" data-category="GNU Make" data-points="100" onclick="hideButton(this)">100</button></li>
+      <li><button class="point-btn" data-category="GNU Make" data-points="200" onclick="hideButton(this)">200</button></li>
+      <li><button class="point-btn" data-category="GNU Make" data-points="300" onclick="hideButton(this)">300</button></li>
+      <li><button class="point-btn" data-category="GNU Make" data-points="400" onclick="hideButton(this)">400</button></li>
+      <li><button class="point-btn" data-category="GNU Make" data-points="500" onclick="hideButton(this)">500</button></li>
     </ul>
 
-    <div id="fruits"></div>
+    <!-- Category 5 -->
+    <div class="category">Terminal</div>
+    <ul class="points-list">
+      <li><button class="point-btn" data-category="Terminal" data-points="100" onclick="hideButton(this)">100</button></li>
+      <li><button class="point-btn" data-category="Terminal" data-points="200" onclick="hideButton(this)">200</button></li>
+      <li><button class="point-btn" data-category="Terminal" data-points="300" onclick="hideButton(this)">300</button></li>
+      <li><button class="point-btn" data-category="Terminal" data-points="400" onclick="hideButton(this)">400</button></li>
+      <li><button class="point-btn" data-category="Terminal" data-points="500" onclick="hideButton(this)">500</button></li>
+    </ul>
 
+    <!-- Category 6 -->
+    <div class="category">SQL</div>
+    <ul class="points-list">
+        <li><button class="point-btn" data-category="SQL" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="SQL" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="SQL" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="SQL" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="SQL" data-points="500" onclick="hideButton(this)">500</button></li>
+    </ul>
+
+
+    </div>
+    <script src="app.js"></script>
   </body>
 </html>
-
-<script type="text/javascript" src="js/questions.js"></script>
-
-<script>
-var items = document.getElementsByTagName("li");
-for (var i = 0; i < items.length; i++) {
-  items[i].addEventListener("click",function(e) {
-  if(e.target.children.length > 0){
-    console.log("display content");
-    e.target.children[0].classList.add('fullscreen');
-  } else {
-    console.log("closed content");
-    e.target.classList.remove('fullscreen');
-  }
-
-  
-} );}
-
-showQuestions();
-</script>
