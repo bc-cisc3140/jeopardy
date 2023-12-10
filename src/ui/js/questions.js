@@ -21,6 +21,27 @@ function fetchQuestion(questionId) {
     });
 }
 
+function loadCategories() {
+  fetch('http://localhost:8000/categories')
+    .then(response => response.json())
+    .then(categories => {
+      const headerRow = document.querySelector('.category-header-row');
+      headerRow.innerHTML = ''; // Clear existing headers
+      categories.forEach(category => {
+        const headerCol = document.createElement('div');
+        headerCol.className = 'col-2 category-header';
+        headerCol.textContent = category;
+        headerRow.appendChild(headerCol);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching categories:', error);
+    });
+}
+
+// Call this function to initialize categories when the page loads
+document.addEventListener('DOMContentLoaded', loadCategories);
+
 // Retrieve the answer to input into the modal
 function fetchAnswer(questionId) {
   fetch(`http://localhost:8000/get-answer?id=${questionId}`)
