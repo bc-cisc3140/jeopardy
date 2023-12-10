@@ -10,6 +10,13 @@
 </head>
 <body>
     <div class="container-fluid">
+        <!-- Users -->
+        <div class="row my-3">
+            <div class="col text-center">
+                <button id="user1Button" class="btn btn-primary">User 1</button>
+                <button id="user2Button" class="btn btn-secondary">User 2</button>
+            </div>
+        </div>
         <!-- Category Headers -->
         <div class="row category-header-row">
             <div class="col-2 category-header">Category 1</div>
@@ -76,8 +83,10 @@
                     <div class="modal-body">
                         <!-- Question content will be loaded here -->
                     </div>
+                    <!-- Decide whether question said was correct or not -->
                     <div class="modal-footer">
-                        <!--Add textfield to input answer?-->
+                            <button id="correctButton" class="btn btn-success">Correct</button>
+                            <button id="wrongButton" class="btn btn-danger">Wrong</button>
                     </div>
                 </div>
             </div>
