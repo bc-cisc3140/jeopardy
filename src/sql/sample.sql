@@ -36,4 +36,4 @@ INSERT INTO jeopardy (topic, level, prompt, answer) VALUES
      ('Web Development',500,'This common security vulnerability occurs when a web application directly includes user input within HTML output.','What is Cross-site Scripting (XSS)?');
 
 
-SELECT * FROM jeopardy;
+-- SELECT * FROM jeopardy;
