@@ -23,5 +23,3 @@
 23,SQL,300,"Use this to add first and last record into the table ""names"".","What is ""INSERT INTO names (first, last);""?"
 24,SQL,400,"Search for strings that contain a '@"" symbol.","what is ""LIKE '%@%';""?"
 25,SQL,500,"Change the emplid of ""myname"" in ""table"" to 123.","What is ""UPDATE table SET emplid=""123"" WHERE name IS 'myname';""?"
-,,,,
-,,,,

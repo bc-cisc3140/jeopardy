@@ -11,4 +11,4 @@ CREATE TABLE jeopardy (
 
 -- import the data from a spread sheet instead of hard coding everything
 .mode csv
-.import jeopardy.csv jeopardy
+.import 'sql/jeopardy.csv' jeopardy
