@@ -52,6 +52,11 @@ li:first-child{
   -webkit-text-stroke-width: 1.1px;
 }
 
+li:not(:first-child):hover {
+  background-color: rgb(7,21,84);
+  transition: 0.3s;
+}
+
 #overlay {
   position: fixed;
   top: 0;
