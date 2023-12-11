@@ -1,23 +1,38 @@
-const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
-const cors = require('cors');
-const path = require('path'); // Make sure to require the path module
+const express = require("express");
+const sqlite3 = require("sqlite3").verbose();
+const cors = require("cors");
+const path = require("path"); // Make sure to require the path module
 
 const app = express();
 app.use(cors());
-app.use(express.static('ui')); // Serves files from 'ui' as static files
+app.use(express.static("ui")); // Serves files from 'ui' as static files
 
-const db = new sqlite3.Database('jeopardy.db', sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database(
+  "jeopardy.db",
+  sqlite3.OPEN_READWRITE,
+  (err) => {
     if (err) {
-        console.error(err.message);
+      console.error(err.message);
     }
-    console.log('Connected to the jeopardy database.');
+    console.log("Connected to the jeopardy database.");
+  }
+);
+
+// Route for fetching a specific question
+app.get("/get-question", (req, res) => {
+  const qid = req.query.id;
+  db.get("SELECT prompt FROM jeopardy WHERE qid = ?", [qid], (err, row) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(row);
+  });
 });
 
 // Route for fetching a specific question
-app.get('/get-question', (req, res) => {
+app.get("/get-answer", (req, res) => {
   const qid = req.query.id;
-  db.get('SELECT prompt FROM jeopardy WHERE qid = ?', [qid], (err, row) => {
+  db.get("SELECT answer FROM jeopardy WHERE qid = ?", [qid], (err, row) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -26,8 +41,8 @@ app.get('/get-question', (req, res) => {
 });
 
 // Route for serving the homepage
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'gameboard.html'));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "ui", "gameboard.html"));
 });
 
 const PORT = 8000;
