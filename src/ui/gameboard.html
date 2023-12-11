@@ -10,9 +10,20 @@
   </head>
   <body>
     <button onclick="resetButtons()">Reset</button>
-    <div class="score-display">
-      Score: <span id="score">0</span>
+
+    <!-- Add Player section -->
+    <div>
+      <input type="text" id="newPlayerName" placeholder="Enter player name">
+      <button onclick="addPlayer()">Add Player</button>
     </div>
+    <!-- Display Players section -->
+    <div id="playersSection">
+      <!-- Player scores will be displayed here -->
+    </div>
+
+    <!-- <div class="score-display">
+      Score: <span id="score">0</span>
+    </div> -->
 
     <div class="jeopardy-board">
       <!-- Category 1 -->
@@ -93,6 +104,48 @@
   
     <!-- <script src="app.js"></script> -->
   <script>
+    let players = [];
+
+    function addPlayer() {
+        const newPlayerName = document.getElementById('newPlayerName').value;
+        if (newPlayerName.trim() !== '') {
+            const newPlayer = {
+                name: newPlayerName,
+                score: 0
+            };
+            players.push(newPlayer);
+            renderPlayers();
+            document.getElementById('newPlayerName').value = ''; // Clear input field after adding player
+        }
+    }
+
+    function renderPlayers() {
+        const playersSection = document.getElementById('playersSection');
+        playersSection.innerHTML = ''; // Clear previous content
+
+        players.forEach((player, index) => {
+            const playerDiv = document.createElement('div');
+            playerDiv.innerHTML = `
+                <span>${player.name} - Score: ${player.score}</span>
+                <input type="number" id="playerScore${index}" value="0">
+                <button onclick="updateScore(${index})">Add</button>
+            `;
+            playersSection.appendChild(playerDiv);
+        });
+    }
+
+    function updateScore(playerIndex) {
+        const scoreInput = document.getElementById(`playerScore${playerIndex}`);
+        const scoreToAdd = parseInt(scoreInput.value);
+        if (!isNaN(scoreToAdd)) {
+            players[playerIndex].score += scoreToAdd;
+            renderPlayers();
+        }
+    }
+
+    // Call renderPlayers initially to display any existing players
+    renderPlayers();
+
     let modal = document.getElementById('myModal');
     let questionElement = document.getElementById('questionText');
     let questionCatagory = document.getElementById('questionCatagory');
@@ -111,9 +164,11 @@
       buttons.forEach(button => {
       button.style.visibility = 'visible';
       button.disabled = false;
-      let scoreElement = document.getElementById('score');
-      scoreElement.textContent = 0;
+      // let scoreElement = document.getElementById('score');
+      // scoreElement.textContent = 0;
       });
+      players = []; // Clear all players
+      renderPlayers(); // Update the display to reflect the changes
     }
 
     function openModal(_questionData) {
@@ -135,13 +190,13 @@
       modal.style.display = 'block';
       }
 
-    function addScore(point){
-      let scoreElement = document.getElementById('score');
-      let scoreText = scoreElement.textContent;
-      let scoreInteger = parseInt(scoreText);
-      newScore = scoreInteger + point;
-      scoreElement.textContent = newScore;
-    }
+    // function addScore(point){
+    //   let scoreElement = document.getElementById('score');
+    //   let scoreText = scoreElement.textContent;
+    //   let scoreInteger = parseInt(scoreText);
+    //   newScore = scoreInteger + point;
+    //   scoreElement.textContent = newScore;
+    // }
 
     function checkAnswer(selectedAnswer, correctAnswer, points) {
       // Disable all answer buttons after selecting an answer
@@ -159,10 +214,10 @@
 
       if (selectedAnswer === correctAnswer) {
         resultMessageElement.textContent = 'Correct answer!';
-        addScore(points);
+        // addScore(points);
       } else {
         resultMessageElement.textContent = `Wrong answer. The correct answer is ${correctAnswer}`;
-        addScore(-points);
+        // addScore(-points);
       }
     
       // Display close button after answering

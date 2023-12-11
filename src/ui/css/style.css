@@ -9,6 +9,7 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* Adjust columns based on your categories */
   gap: 30px;
+  margin-top: 20px;
   margin-left: 20px; /* Add left margin */
   margin-right: 20px; /* Add right margin */
 }
