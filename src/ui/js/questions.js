@@ -39,7 +39,19 @@ function showAnswer(elem) {
   }
 }
 
-function createOverlay() {
+async function createOverlay(qid) {
+
+  var questquery = "SELECT prompt FROM jeopardy WHERE qid IS " + qid;
+  let response = await fetch('/query?query=' + encodeURIComponent(questquery));
+  let question = await response.json();
+  console.log(question.data);
+
+  var ansquery = "SELECT answer FROM jeopardy WHERE qid IS " + qid;
+  response = await fetch('/query?query=' + encodeURIComponent(ansquery));
+  let answer = await response.json();
+  console.log(answer.data);
+
+
   const overlay = document.createElement('div');
   overlay.id = 'overlay';
   overlay.state = 'question'
@@ -54,7 +66,9 @@ function createOverlay() {
 
   const questionText = document.createElement('div');
   questionText.id = 'topHalfText';
-  questionText.innerHTML = '<p>Question.</p>';
+  let quest = JSON.stringify(question.data);
+  quest = quest.substring(12, quest.length - 3); // very ad hoc
+  questionText.innerHTML = '<p>' + quest + '</p>';
 
   const bottomOverlay = document.createElement('div');
   bottomOverlay.state = "hidden";
@@ -64,7 +78,9 @@ function createOverlay() {
   bottomOverlay.addEventListener('click', function() {
     if (bottomOverlay.state == "hidden") {
       bottomOverlay.state = "show";
-      bottomOverlay.innerHTML = '<p>Answer Text</p>';
+      let ans = JSON.stringify(answer.data);
+      ans = ans.substring(12, ans.length - 3); // very ad hoc
+      bottomOverlay.innerHTML = '<p>' + ans + '</p>';
       overlay.appendChild(closeButton);
     }
   });
@@ -83,9 +99,8 @@ function press(element) {
   var state = element.getAttribute('state');
 
   if (state == "number") {
-    createOverlay();
-    
-    showQuestions();
+    createOverlay(itemId);
+
     console.log("valid press"); // valid press
     element.style.textDecoration = "line-through";
     element.style.color = "rgb(73, 74, 83)"
