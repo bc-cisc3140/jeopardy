@@ -1,0 +1,25 @@
+﻿1,History of Computing,100,This Person worked on the IBM System 360  and wrote about it in the book The Mythical Man-Month.,Who is Fredrick Brooks?
+2,History of Computing,200,Considered by many to be the most influential language to date. This Language was developed in Bell Labs by Dennis Ritchie.,What is c?
+3,History of Computing,300,"This Program authored by Brian Kernighan, originlay referenced in his book on Programming in B. Is one of the most widely popular programs.","What is Hello, World?"
+4,History of Computing,400,As shown in the movie The Immitaion Game. Durring WWII in Bletchly Park the Bombe was assembled to crack this encryption machine.,What is the Enigma Machine?
+5,History of Computing,500,In what year and month was Java - with the write once run anywhere design - released?,When is May of 1995?
+6,Terminal,100,When not sure what a tool or function does this tool will often contain the manual.,"What is ""man""?"
+7,Terminal,200,In sed using this flag will do an inplace replacement of the text in the files.,"What is ""-I""?"
+8,Terminal,300,This symbol is used to redirect standard output to a file.,"What is "">""?"
+9,Terminal,400,Exiting vim is the subject of many memes. What is the command to exit vim when no edits have been made?,"What is "":q""?"
+10,Terminal,500,"When searching for ""hello"" within the files help.txt program.txt. What is the full command to show the text and suppress the file name?","What is ""grep -h 'hello' help.txt program.txt""?"
+11,Version Control,100,,
+12,Version Control,200,,
+13,Version Control,300,,
+14,Version Control,400,,
+15,Version Control,500,,
+16,Regur Expression,100,,
+17,Regur Expression,200,,
+18,Regur Expression,300,,
+19,Regur Expression,400,,
+20,Regur Expression,500,,
+21,SQL,100,,
+22,SQL,200,,
+23,SQL,300,,
+24,SQL,400,,
+25,SQL,500,,
