@@ -13,11 +13,11 @@
 13,Version Control,300,You use this git command to see the changes between the laststaged version and the most recent version.,"What is ""git diff filename""?"
 14,Version Control,400,To see the git logs as one line per log you would use?,"What is ""git log --pretty=oneline""?"
 15,Version Control,500,You would use this command to only stage some changes (hunks) in a file (or multiple files) or edit them.,"What is ""git add -p""?"
-16,Regur Expression,100,By default which pattern matching does grep use?,What is BRE?
-17,Regur Expression,200,Use this regular expression to match one or more A's.,"What is ""A+""?"
-18,Regur Expression,300,A regular expression for all strings that don't contain a W.,"What is ""[^W]*""?"
-19,Regur Expression,400,Write a regular expression for a string that contians at least 2 characters,"What is "".{2,}""?"
-20,Regur Expression,500,You can use this regular expression to express a valid emplid.,"What is ""[0-9]{8}""?"
+16,Regular Expression,100,By default which pattern matching does grep use?,What is BRE?
+17,Regular Expression,200,Use this regular expression to match one or more A's.,"What is ""A+""?"
+18,Regular Expression,300,A regular expression for all strings that don't contain a W.,"What is ""[^W]*""?"
+19,Regular Expression,400,Write a regular expression for a string that contians at least 2 characters,"What is "".{2,}""?"
+20,Regular Expression,500,You can use this regular expression to express a valid emplid.,"What is ""[0-9]{8}""?"
 21,SQL,100,"Which of the following is not a sqlite data type; REAL, INTEGER, TEXT, DOUBLE?",What is DOUBLE?
 22,SQL,200,What is the command to show the entire table?,"What is ""SELECT * FROM table;""?"
 23,SQL,300,"Use this to add first and last record into the table ""names"".","What is ""INSERT INTO names (first, last);""?"
