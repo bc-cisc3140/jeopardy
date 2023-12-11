@@ -102,80 +102,87 @@
     let closeButton = document.getElementById('closeButton');
 
     function hideButton(button) {
-        button.style.visibility = 'hidden';
-        button.disabled = true;
-      }
+      button.style.visibility = 'hidden';
+      button.disabled = true;
+    }
       
     function resetButtons() {
-    let buttons = document.querySelectorAll('.point-btn');
-    buttons.forEach(button => {
-        button.style.visibility = 'visible';
-        button.disabled = false;
-        let scoreElement = document.getElementById('score');
-        scoreElement.textContent = 0;
-    });
+      let buttons = document.querySelectorAll('.point-btn');
+      buttons.forEach(button => {
+      button.style.visibility = 'visible';
+      button.disabled = false;
+      let scoreElement = document.getElementById('score');
+      scoreElement.textContent = 0;
+      });
     }
 
     function openModal(_questionData) {
-        // Display the question in the modal
-        questionCatagory.textContent = `Catagory: ${_questionData.Category}`;
-        questionPoint.textContent = `Point: ${_questionData.Points}`;
-        questionElement.textContent = _questionData.Question;
-      
-        // Create answer buttons
-        const answers = [_questionData.OptionA, _questionData.OptionB, _questionData.OptionC, _questionData.OptionD]; // Replace with your answer options
-        answers.forEach(answer => {
-          const button = document.createElement('button');
-          button.textContent = answer;
-          button.classList.add('answer-button');
-          button.onclick = () => checkAnswer(answer, _questionData.CorrectAnswer, _questionData.Points);
-          answerOptionsElement.appendChild(button);
-        });
-      
-        modal.style.display = 'block';
+      // Display the question in the modal
+      questionCatagory.textContent = `Catagory: ${_questionData.Category}`;
+      questionPoint.textContent = `Point: ${_questionData.Points}`;
+      questionElement.textContent = _questionData.Question;
+    
+      // Create answer buttons
+      const answers = [_questionData.OptionA, _questionData.OptionB, _questionData.OptionC, _questionData.OptionD]; // Replace with your answer options
+      answers.forEach(answer => {
+      const button = document.createElement('button');
+      button.textContent = answer;
+      button.classList.add('answer-button');
+      button.onclick = () => checkAnswer(answer, _questionData.CorrectAnswer, _questionData.Points);
+      answerOptionsElement.appendChild(button);
+      });
+    
+      modal.style.display = 'block';
       }
 
     function addScore(point){
-        let scoreElement = document.getElementById('score');
-        let scoreText = scoreElement.textContent;
-        let scoreInteger = parseInt(scoreText);
-        newScore = scoreInteger + point;
-        scoreElement.textContent = newScore;
+      let scoreElement = document.getElementById('score');
+      let scoreText = scoreElement.textContent;
+      let scoreInteger = parseInt(scoreText);
+      newScore = scoreInteger + point;
+      scoreElement.textContent = newScore;
     }
 
     function checkAnswer(selectedAnswer, correctAnswer, points) {
-        if (selectedAnswer === correctAnswer) {
-          resultMessageElement.textContent = 'Correct answer!';
-          addScore(points);
-        } else {
-          resultMessageElement.textContent = `Wrong answer. The correct answer is ${correctAnswer}`;
-          addScore(-points);
+      // Disable all answer buttons after selecting an answer
+      const answerButtons = document.querySelectorAll('.answer-button');
+      answerButtons.forEach(button => {
+        if (button.textContent === selectedAnswer) {
+          if (selectedAnswer === correctAnswer) {
+            button.style.backgroundColor = 'green'; // Change color to green for the correct answer
+          } else {
+            button.style.backgroundColor = 'red'; // Change color to red for the wrong answer
+          }
         }
-      
-        // Display close button after answering
-        closeButton.style.display = 'block';
-      
-        // Disable all answer buttons after selecting an answer
-        const answerButtons = document.querySelectorAll('.answer-button');
-        answerButtons.forEach(button => {
-          button.disabled = true;
-        });
+        button.disabled = true;
+      });
+
+      if (selectedAnswer === correctAnswer) {
+        resultMessageElement.textContent = 'Correct answer!';
+        addScore(points);
+      } else {
+        resultMessageElement.textContent = `Wrong answer. The correct answer is ${correctAnswer}`;
+        addScore(-points);
+      }
+    
+      // Display close button after answering
+      closeButton.style.display = 'block';
     }
       
     function closeModal() {
-        // Reset modal content for reuse
-        questionElement.textContent = '';
-        answerOptionsElement.innerHTML = '';
-        resultMessageElement.textContent = '';
-        closeButton.style.display = 'none';
-        modal.style.display = 'none';
+      // Reset modal content for reuse
+      questionElement.textContent = '';
+      answerOptionsElement.innerHTML = '';
+      resultMessageElement.textContent = '';
+      closeButton.style.display = 'none';
+      modal.style.display = 'none';
     }
       
       
     let buttons = document.querySelectorAll('.point-btn');
 
     buttons.forEach(button => {
-    button.addEventListener('click', () => {
+      button.addEventListener('click', () => {
         let category = button.getAttribute('data-category');
         let points = button.getAttribute('data-points');
         fetch(`/get-question/${category}/${points}`)
@@ -193,7 +200,7 @@
                 console.error('Error fetching question:', error);
               });
         hideButton(button);
-    });
+        });
     });
   
   </script>
