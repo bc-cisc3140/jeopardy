@@ -56,35 +56,43 @@ function fetchAnswer(questionId) {
       console.error("Error:", error);
     });
 }
-
 // Function to display the question modal
-function showQuestionModal(questionText) {
+function showQuestionModal(contentText, isAnswer = false) {
   const questionModalElement = document.getElementById("questionModal");
   const modalBody = questionModalElement.querySelector(".modal-body");
-  modalBody.textContent = questionText;
+  modalBody.textContent = contentText;
+
+  // Update the modal label based on whether it's a question or answer
+  const label = document.getElementById("questionModalLabel");
+  label.textContent = isAnswer ? "Answer" : "Question";
 
   // Update the "Show Answer" button text
   const showAnswerButton = document.getElementById("showAnswerButton");
-  showAnswerButton.textContent = "Show Answer";
+  showAnswerButton.textContent = isAnswer ? "Close" : "Show Answer";
 
   // Add an event listener for the "Show Answer" button
   showAnswerButton.addEventListener("click", function () {
     // Call the function to fetch and display the answer
-    fetchAnswer(currentQuestionId);
+    if (!isAnswer) {
+      fetchAnswer(currentQuestionId);
+    } else {
+      hideModal(questionModalElement);
+    }
   });
 
-  var questionModal = new bootstrap.Modal(questionModalElement);
-  questionModal.show();
+  // Show the modal
+  showModal(questionModalElement);
 }
 
 // Function to display the answer modal
-function showAnswerModal(answerText) {
+function showAnswerModal(contentText) {
   const answerModalElement = document.getElementById("questionModal");
   const modalBody = answerModalElement.querySelector(".modal-body");
-  modalBody.textContent = answerText;
+  modalBody.textContent = contentText;
 
   const label = document.getElementById("questionModalLabel");
   label.textContent = "Answer";
+  
   // Change the "Show Answer" button text to "Close" in the question modal
   const showAnswerButton = document.getElementById("showAnswerButton");
   showAnswerButton.textContent = "Close";
@@ -94,10 +102,27 @@ function showAnswerModal(answerText) {
 
   // Add a new event listener to close the answer modal
   showAnswerButton.addEventListener("click", function () {
-    var answerModal = new bootstrap.Modal(answerModalElement);
-    answerModal.hide();
+    hideModal(answerModalElement);
   });
 
-  var answerModal = new bootstrap.Modal(answerModalElement);
-  answerModal.show();
+  // Show the modal
+  showModal(answerModalElement);
 }
+
+// Function to hide the modal
+function hideModal(modalElement) {
+  var modal = new bootstrap.Modal(modalElement);
+  modal.hide();
+}
+
+// Function to show the modal
+function showModal(modalElement) {
+  var modal = new bootstrap.Modal(modalElement);
+  modal.show();
+}
+
+// Event listener to reset the modal label when the modal is hidden
+$('#questionModal').on('hidden.bs.modal', function (e) {
+  const label = document.getElementById("questionModalLabel");
+  label.textContent = "Question";
+});

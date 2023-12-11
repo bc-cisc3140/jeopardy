@@ -35,7 +35,7 @@ html, body {
     color: white;
     border: 2px solid black;
     text-align: center;
-    font-size: 2vh;
+    font-size: 3vh;
     user-select: none;
     min-height: 50px;
 }
@@ -69,6 +69,21 @@ html, body {
     padding: 20px;
     border: 1px solid #ffffff;
     width: 100%;
+}
+
+/* #questionModalLabel {
+    font-size: 3rem;
+    font-weight: bold;
+} */
+
+.modal-body {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.modal-dialog {
+    max-height: 60%;
+    max-width: 50%; 
 }
 
 .modal-footer{
