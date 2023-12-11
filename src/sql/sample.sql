@@ -9,7 +9,6 @@ CREATE TABLE jeopardy (
 );
 /*Sample questions for testing, will add more overtime*/
 INSERT INTO jeopardy (topic, level, prompt, answer) VALUES
-<<<<<<< HEAD
     ('History of Computing', 100, 'This ancient computing device, consisting of beads on rods, was used for arithmetic calculations and is still in use in some parts of the world today.', 'What is an abacus?'),
      ('History of Computing', 200, 'Method was used to feed instructions into early computing machines', 'What are punch cards?'),
      ('History of Computing', 300, 'Who is considered to be the father of computers?', 'Who is Charles Babbage?'),
@@ -36,14 +35,5 @@ INSERT INTO jeopardy (topic, level, prompt, answer) VALUES
      ('Web Development',400,'The release date(month&year) of the first version of SSH.','What is july 1995?'),
      ('Web Development',500,'This common security vulnerability occurs when a web application directly includes user input within HTML output.','What is Cross-site Scripting (XSS)?');
 
-=======
-('History of Computing', 100, 'This ancient computing device, consisting of beads on rods, was used for arithmetic calculations and is still in use in some parts of the world today.', 'What is an abacus?'),
-('History of Computing', 200, 'Method was used to feed instructions into early computing machines', 'What are punch cards?'),
-('History of Computing', 300, 'Who is considered to be the father of computers?', 'Who is Charles Babbage?'),
-('History of Computing', 400, 'What was the name of the German cypher machine used in World War II?', 'What is the Engima?'),
-('History of Computing', 500, 'Considered the first woman programmer?', 'Who is Ada Lovelace?'),
-('Terminal Environment', 100, 'What year was UNIX developed?', 'What is 1969?'),
-('Terminal Environment', 200, 'What structure is your file directory?', 'What is a tree?');
->>>>>>> 4ce737bc32986350eb58b146a7af605a0ad91edb
 
 SELECT * FROM jeopardy;
