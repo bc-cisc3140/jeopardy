@@ -5,40 +5,44 @@ const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('database.db');
 
 // Server port
-var HTTP_PORT = 8000 
+var HTTP_PORT = 8001 
 
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-app.get("/api/fruits", (req, res, next) => {
-  var sql = "select * from fruits"
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      res.status(400).json({"error":err.message});
-      return;
-    }
-    res.json({
-      "message":"success",
-      "data":rows
-    })
-  });
-});
+app.get('/get-question/:category/:points', (req, res) => {
+  const { category, points } = req.params;
 
-app.get("/api/fruit/:id", (req, res, next) => {
-    var sql = "select * from fruits where id = ?"
-    var params = [req.params.id]
-    db.get(sql, params, (err, row) => {
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
-        }
-        res.json({
-            "message":"success",
-            "data":row
-        })
-      });
+  const conn = new sqlite3.Database('database.db');
+
+  // Fetch a question from the database based on the category and points
+  const query = 'SELECT * FROM JeopardyQuestions WHERE Category = ? AND Points = ?';
+  conn.get(query, [category, points], (err, row) => {
+      if (err) {
+          res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+          if (row) {
+              // Get column names from row object
+              const columns = Object.keys(row);
+
+              // Create a dictionary using column names as keys
+              const rowDict = {};
+              columns.forEach((col) => {
+                  rowDict[col] = row[col];
+              });
+
+              // Return the row dictionary as JSON response
+              res.status(200).json(rowDict);
+          } else {
+              res.status(404).send('Question not found');
+          }
+      }
+  });
+
+  // Close the database connection
+  conn.close();
 });
 
 // Root endpoint

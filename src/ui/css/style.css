@@ -148,3 +148,8 @@ body {
   margin-top: 10px;
   text-align: left;
 }
+
+#closeButton{
+  padding: 8px 15px;
+  font-size: 20px;
+}
