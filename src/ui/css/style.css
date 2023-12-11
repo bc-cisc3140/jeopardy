@@ -10,6 +10,7 @@ html, body {
 .jeopardy-square {
     padding: 20px;
     font-size: 60px;
+    font-weight: bold;
     background-color: blue;
     color: yellow;
     border: 2px solid black;
