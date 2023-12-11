@@ -20,11 +20,12 @@ html, body {
     align-items: center;
     cursor: pointer;
     user-select: none;
+    width:20%;
 }
 
 .jeopardy-square:hover {
-background-color: rgb(31, 31, 82);
-transition: background-color 0.3s ease;
+    background-color: rgb(31, 31, 82);
+    transition: background-color 0.3s ease;
 }
 
 .category-header {
@@ -49,6 +50,7 @@ transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 20%;
 }
 
 .modal {
@@ -74,9 +76,8 @@ transition: background-color 0.3s ease;
 }
 
 .used {
-    
+
     color:grey;
     text-decoration: line-through;
     background-color: rgb(31, 31, 82);
 }
-
