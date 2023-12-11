@@ -42,12 +42,12 @@ function showAnswer(elem) {
 async function createOverlay(qid) {
 
   var questquery = "SELECT prompt FROM jeopardy WHERE qid IS " + qid;
-  let response = await fetch('/query?query=' + encodeURIComponent(questquery));
+  let response = await fetch('/query?query=' + questquery);
   let question = await response.json();
   console.log(question.data);
 
   var ansquery = "SELECT answer FROM jeopardy WHERE qid IS " + qid;
-  response = await fetch('/query?query=' + encodeURIComponent(ansquery));
+  response = await fetch('/query?query=' + ansquery);
   let answer = await response.json();
   console.log(answer.data);
 
@@ -64,16 +64,17 @@ async function createOverlay(qid) {
     document.body.removeChild(overlay); // Remove the overlay when the close button is clicked
   });
 
-  const questionText = document.createElement('div');
-  questionText.id = 'topHalfText';
+  const topOverlay = document.createElement('div');
+  topOverlay.id = 'topOverlay';
+
   let quest = JSON.stringify(question.data);
   quest = quest.substring(12, quest.length - 3); // very ad hoc
-  questionText.innerHTML = '<p>' + quest + '</p>';
+  topOverlay.innerHTML = '<p>' + quest + '</p>';
 
   const bottomOverlay = document.createElement('div');
   bottomOverlay.state = "hidden";
   bottomOverlay.id = 'bottomOverlay';
-  bottomOverlay.innerHTML = '<p>Show Answer.</p>'; 
+  bottomOverlay.innerHTML = '<p>Show Answer.</p>';
 
   bottomOverlay.addEventListener('click', function() {
     if (bottomOverlay.state == "hidden") {
@@ -85,7 +86,8 @@ async function createOverlay(qid) {
     }
   });
 
-  overlay.appendChild(questionText);
+  //topOverlay.appendChild(questionText);
+  overlay.appendChild(topOverlay);
   overlay.appendChild(bottomOverlay);
 
 

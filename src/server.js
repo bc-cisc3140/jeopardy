@@ -41,7 +41,7 @@ app.get("/api/fruit/:id", (req, res, next) => {
       });
 });
 
-// custom query's
+// custom query for the prompt and answer
 app.get('/query', (req, res) => {
   const { query } = req.query;
 
@@ -54,7 +54,7 @@ app.get('/query', (req, res) => {
 
   db.all(query, [], (err, elem) => {
     if (err) {
-      res.status(401).json({ "error": err.message });
+      res.status(400).json({ "error": err.message });
       return;
     }
     res.json({
