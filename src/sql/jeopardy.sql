@@ -1,5 +1,8 @@
 -- creating the table to start
 
+-- should only be used when creating the table for the first time.
+-- if edits were made the table should be deleted and re-added to the database or the changes can be made manually.
+
 CREATE TABLE jeopardy (
 	qid INTEGER,
 	topic TEXT,
