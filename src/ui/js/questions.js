@@ -31,36 +31,65 @@ function dailyDouble(ddQuestion) {
   console.log("hello");
 }
 
-function displayQuestion(element) {
+function showAnswer(elem) {
+  if (elem.state == "hidden") {
+    console.log("unhidden23");
+    elem.state = "show";
+    elem.innerHTML = '<p>Answer.</p>';
+  }
+}
+
+function createOverlay() {
+  const overlay = document.createElement('div');
+  overlay.id = 'overlay';
+  overlay.state = 'question'
+
+  // Create a close button
+  const closeButton = document.createElement('span');
+  closeButton.id = 'closeButton';
+  closeButton.innerHTML = '&times;'; // Close symbol (X)
+  closeButton.addEventListener('click', function () {
+    document.body.removeChild(overlay); // Remove the overlay when the close button is clicked
+  });
+
+  const questionText = document.createElement('div');
+  questionText.id = 'topHalfText';
+  questionText.innerHTML = '<p>Question.</p>';
+
+  const bottomOverlay = document.createElement('div');
+  bottomOverlay.state = "hidden";
+  bottomOverlay.id = 'bottomOverlay';
+  bottomOverlay.innerHTML = '<p>Show Answer.</p>'; 
+
+  bottomOverlay.addEventListener('click', function() {
+    if (bottomOverlay.state == "hidden") {
+      bottomOverlay.state = "show";
+      bottomOverlay.innerHTML = '<p>Answer Text</p>';
+      overlay.appendChild(closeButton);
+    }
+  });
+
+  overlay.appendChild(questionText);
+  overlay.appendChild(bottomOverlay);
+
+
+  document.body.appendChild(overlay);
+  
+}
+
+
+function press(element) {
   var itemId = element.id;
   var state = element.getAttribute('state');
-  var origFontSizeString = window.getComputedStyle(element).fontSize;
-  var origFontSize = parseFloat(origFontSizeString);
-  var newFontSize = origFontSize/4;
-  var completeFontSize = origFontSize*4;
 
   if (state == "number") {
-    element.setAttribute("state", "question"); // state to display question
-
-    // code to display question
-    element.innerText = itemId + " question"; // dummy question
-    element.style.fontSize = newFontSize + "px";
-  }
-  else if (state == "question") {
-    element.setAttribute("state", "answer"); // state to display answer
-
-    // code to display answer
-    element.innerText = itemId + " answer"; // dummy answer
-  }
-  else if (state == "answer") {
-    element.setAttribute("state", "complete"); // state to display points but crossed out
-
-    // code to bring back point value but crossed out and make the element unclickable
-    element.innerText = "$" + itemId.slice(2);
+    createOverlay();
+    
+    showQuestions();
+    console.log("valid press"); // valid press
     element.style.textDecoration = "line-through";
     element.style.color = "rgb(73, 74, 83)"
-    element.style.fontSize = completeFontSize + "px";
     element.setAttribute("onclick", "")
+    
   }
-  console.log(state);
 }
