@@ -8,6 +8,7 @@ body {
 p {
   margin-left: 5%;
   margin-right: 5%;
+  text-shadow: 4px 4px black;
 }
 
 ul {
