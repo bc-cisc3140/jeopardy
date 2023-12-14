@@ -13,3 +13,10 @@ To avoid installing anything extra, we will use SQLite3 to store data. SQLite of
 | answer | Answer           | Text    | What are software applications?                                                   |
 
 
+
+## Database setup: 
+`sample.sql` is used for creating the tables in the database, and `jeopardy.db` is the SQLite database file where the schema and data are stored.
+
+## JavaScript 
+`server.js` sets up an Express.js server that serves static files from the 'ui' directory, connects to a SQLite database 'jeopardy.db', and defines two routes: one for fetching a specific question(`questions.js`) from the database and another for serving the homepage. The server listens on port 8000 and logs a message when it successfully starts.
+
