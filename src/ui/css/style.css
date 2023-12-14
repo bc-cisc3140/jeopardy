@@ -1,26 +1,156 @@
-/* sample css */ 
+/* Reset default margin and padding */
 body {
-  display: flex; 
-  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-ul {
+.jeopardy-board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Adjust columns based on your categories */
+  gap: 30px;
+  margin-top: 20px;
+  margin-left: 20px; /* Add left margin */
+  margin-right: 20px; /* Add right margin */
+}
+
+/* Style the category boxes */
+.category {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 24px;
+  grid-row: 1; /* Categories in the first row */
+}
+
+/* Style the points list */
+.points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the point buttons */
+.points-list li {
+  margin-bottom: 20px;
+}
+
+.point-btn {
+  background-color: #ecf0f1;
+  padding: 30px 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Set the width to 100% */
+  max-width: 300px; /* Set a maximum width if needed */
+  height: 100px; /* Set a fixed height */
+  min-width: 0; /* Reset min-width */
+  min-height: 0; /* Reset min-height */
+  transition: background-color 0.3s ease;
+  font-size: 24px;
+}
+
+.point-btn:hover {
+  background-color: #d5d8dc;
+}
+
+/* Style the question container */
+.question-container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin-right: 10px;
-  padding: 0;
-  text-align: center; 
-  width: calc(15%);
-}
-
-li { 
   align-items: center;
-  display: inline-flex;
-  justify-content: center;
+  text-align: top;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-li:not(:first-child) {
-  border: 1px solid blue; 
-  height:150px; align-items:center;
+/* Style the score display */
+.score-display {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 80px;
+  background-color: #bfd6e8; /* Change the modal background color */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  text-align: center;
+}
+
+/* Style for the answer buttons */
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.answer-button {
+  background-color: #9dc9ed;
+  margin: 5px 0;
+  padding: 8px 15px;
+  cursor: pointer;
+  width: auto;
+  text-align: left;
+  font-size: 30px;
+}
+
+/* Additional style for the question and result message */
+.question {
+  background-color: #9dc9ed;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.questionTitle {
+  background-color: #3699ea;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.questionPoint{
+  background-color: #3699ea;
+  margin: 5px 0;
+  font-weight: bold;
+  width: auto;
+  padding: 8px 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#resultMessage {
+  margin-top: 10px;
+  text-align: left;
+}
+
+#closeButton{
+  padding: 8px 15px;
+  font-size: 20px;
 }

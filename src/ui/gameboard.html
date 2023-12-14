@@ -3,58 +3,261 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>SAMPLE</title>
+    <title>Jeopardy Game</title>
     <meta name="description" content="Page Description" />
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <ul>
-      <li>Topic</li>
-      <li>100</li>
-      <li>200</li>
-      <li>300</li>
-      <li>400</li>
-      <li>500</li>
-    </ul>
-    <ul>
-      <li>History of Computing</li>
-      <li>100<div class="question">The year Windows 95 was released.</div></li>
-      <li>200<div class="question">The first form of external digital file storage.</div></li>
-      <li>300<div class="question">The year JavaScript became available</div></li>
-      <li>400<div class="question">The decade UNIX became available</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
-    </ul>
-    <ul>
-      <li>BC CIS</li>
-      <li>100<div class="question">The language taught in the Intro Programming Sequence</li>
-      <li>200<div class="question">CIS Office Location (name the building)</li>
-      <li>300<div class="question">CIS Office Room Number</div></li>
-      <li>400<div class="question">Intentionally left blank</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
-    </ul>
+    <button onclick="resetButtons()">Reset</button>
 
-    <div id="fruits"></div>
+    <!-- Add Player section -->
+    <div>
+      <input type="text" id="newPlayerName" placeholder="Enter player name">
+      <button onclick="addPlayer()">Add Player</button>
+    </div>
+    <!-- Display Players section -->
+    <div id="playersSection">
+      <!-- Player scores will be displayed here -->
+    </div>
 
+    <!-- <div class="score-display">
+      Score: <span id="score">0</span>
+    </div> -->
+
+    <div class="jeopardy-board">
+      <!-- Category 1 -->
+      <div class="category">Pattern Matching</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Pattern Matching" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  
+      <!-- Category 2 -->
+      <div class="category">Unix</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Unix" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Unix" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  
+      <!-- Category 3 -->
+      <div class="category">History of Computing</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="History of Computing" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="History of Computing" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  
+      <!-- Category 4 -->
+      <div class="category">GNU Make</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="GNU Make" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="GNU Make" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+
+      <!-- Category 5 -->
+      <div class="category">Terminal</div>
+      <ul class="points-list">
+        <li><button class="point-btn" data-category="Terminal" data-points="100" onclick="hideButton(this)">100</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="200" onclick="hideButton(this)">200</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="300" onclick="hideButton(this)">300</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="400" onclick="hideButton(this)">400</button></li>
+        <li><button class="point-btn" data-category="Terminal" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+
+      <!-- Category 6 -->
+      <div class="category">SQL</div>
+      <ul class="points-list">
+          <li><button class="point-btn" data-category="SQL" data-points="100" onclick="hideButton(this)">100</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="200" onclick="hideButton(this)">200</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="300" onclick="hideButton(this)">300</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="400" onclick="hideButton(this)">400</button></li>
+          <li><button class="point-btn" data-category="SQL" data-points="500" onclick="hideButton(this)">500</button></li>
+      </ul>
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <h2 class="questionTitle", id="questionCatagory"></h2>
+      <h2 class="questionPoint", id="questionPoint"></h2>
+      <h1 class="question" id="questionText"></h1>
+      <div id="answerOptions" class="answer-options">
+        <!-- Answer buttons will be inserted here -->
+      </div>
+      <h1 id="resultMessage"></h1>
+      <button id="closeButton" style="display: none;" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+  
+    <!-- <script src="app.js"></script> -->
+  <script>
+    let players = [];
+
+    function addPlayer() {
+        const newPlayerName = document.getElementById('newPlayerName').value;
+        if (newPlayerName.trim() !== '') {
+            const newPlayer = {
+                name: newPlayerName,
+                score: 0
+            };
+            players.push(newPlayer);
+            renderPlayers();
+            document.getElementById('newPlayerName').value = ''; // Clear input field after adding player
+        }
+    }
+
+    function renderPlayers() {
+        const playersSection = document.getElementById('playersSection');
+        playersSection.innerHTML = ''; // Clear previous content
+
+        players.forEach((player, index) => {
+            const playerDiv = document.createElement('div');
+            playerDiv.innerHTML = `
+                <span>${player.name} - Score: ${player.score}</span>
+                <input type="number" id="playerScore${index}" value="0">
+                <button onclick="updateScore(${index})">Add</button>
+            `;
+            playersSection.appendChild(playerDiv);
+        });
+    }
+
+    function updateScore(playerIndex) {
+        const scoreInput = document.getElementById(`playerScore${playerIndex}`);
+        const scoreToAdd = parseInt(scoreInput.value);
+        if (!isNaN(scoreToAdd)) {
+            players[playerIndex].score += scoreToAdd;
+            renderPlayers();
+        }
+    }
+
+    // Call renderPlayers initially to display any existing players
+    renderPlayers();
+
+    let modal = document.getElementById('myModal');
+    let questionElement = document.getElementById('questionText');
+    let questionCatagory = document.getElementById('questionCatagory');
+    let questionPoint = document.getElementById('questionPoint');
+    let answerOptionsElement = document.getElementById('answerOptions');
+    let resultMessageElement = document.getElementById('resultMessage');
+    let closeButton = document.getElementById('closeButton');
+
+    function hideButton(button) {
+      button.style.visibility = 'hidden';
+      button.disabled = true;
+    }
+      
+    function resetButtons() {
+      let buttons = document.querySelectorAll('.point-btn');
+      buttons.forEach(button => {
+      button.style.visibility = 'visible';
+      button.disabled = false;
+      // let scoreElement = document.getElementById('score');
+      // scoreElement.textContent = 0;
+      });
+      players = []; // Clear all players
+      renderPlayers(); // Update the display to reflect the changes
+    }
+
+    function openModal(_questionData) {
+      // Display the question in the modal
+      questionCatagory.textContent = `Catagory: ${_questionData.Category}`;
+      questionPoint.textContent = `Point: ${_questionData.Points}`;
+      questionElement.textContent = _questionData.Question;
+    
+      // Create answer buttons
+      const answers = [_questionData.OptionA, _questionData.OptionB, _questionData.OptionC, _questionData.OptionD]; // Replace with your answer options
+      answers.forEach(answer => {
+      const button = document.createElement('button');
+      button.textContent = answer;
+      button.classList.add('answer-button');
+      button.onclick = () => checkAnswer(answer, _questionData.CorrectAnswer, _questionData.Points);
+      answerOptionsElement.appendChild(button);
+      });
+    
+      modal.style.display = 'block';
+      }
+
+    // function addScore(point){
+    //   let scoreElement = document.getElementById('score');
+    //   let scoreText = scoreElement.textContent;
+    //   let scoreInteger = parseInt(scoreText);
+    //   newScore = scoreInteger + point;
+    //   scoreElement.textContent = newScore;
+    // }
+
+    function checkAnswer(selectedAnswer, correctAnswer, points) {
+      // Disable all answer buttons after selecting an answer
+      const answerButtons = document.querySelectorAll('.answer-button');
+      answerButtons.forEach(button => {
+        if (button.textContent === selectedAnswer) {
+          if (selectedAnswer === correctAnswer) {
+            button.style.backgroundColor = 'green'; // Change color to green for the correct answer
+          } else {
+            button.style.backgroundColor = 'red'; // Change color to red for the wrong answer
+          }
+        }
+        button.disabled = true;
+      });
+
+      if (selectedAnswer === correctAnswer) {
+        resultMessageElement.textContent = 'Correct answer!';
+        // addScore(points);
+      } else {
+        resultMessageElement.textContent = `Wrong answer. The correct answer is ${correctAnswer}`;
+        // addScore(-points);
+      }
+    
+      // Display close button after answering
+      closeButton.style.display = 'block';
+    }
+      
+    function closeModal() {
+      // Reset modal content for reuse
+      questionElement.textContent = '';
+      answerOptionsElement.innerHTML = '';
+      resultMessageElement.textContent = '';
+      closeButton.style.display = 'none';
+      modal.style.display = 'none';
+    }
+      
+      
+    let buttons = document.querySelectorAll('.point-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        let category = button.getAttribute('data-category');
+        let points = button.getAttribute('data-points');
+        fetch(`/get-question/${category}/${points}`)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response as JSON
+            })
+            .then(questionData => {
+                // Handle the received question data here
+                openModal(questionData)
+              })
+            .catch(error => {
+                console.error('Error fetching question:', error);
+              });
+        hideButton(button);
+        });
+    });
+  
+  </script>
   </body>
 </html>
-
-<script type="text/javascript" src="js/questions.js"></script>
-
-<script>
-var items = document.getElementsByTagName("li");
-for (var i = 0; i < items.length; i++) {
-  items[i].addEventListener("click",function(e) {
-  if(e.target.children.length > 0){
-    console.log("display content");
-    e.target.children[0].classList.add('fullscreen');
-  } else {
-    console.log("closed content");
-    e.target.classList.remove('fullscreen');
-  }
-
-  
-} );}
-
-showQuestions();
-</script>

@@ -16,10 +16,12 @@ Because we are using GitHub to store this project, please note that you will nee
 
 From the `src` folder, run `node server.js`
 
-Then in the browser go to http://localhost:8000/app to view the gameboard
+Then in the browser go to http://localhost:8001/app to view the gameboard
 
 ### 2. Project goals
 
 The documentation outlining goals for the project can be found in the `design_docs` folder.
 
 
+### Debug
+run `npm install` if you didn't install the packages the run with `node server.js` in `src` folder
