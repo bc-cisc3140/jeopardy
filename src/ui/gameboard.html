@@ -9,33 +9,46 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <ul>
-      <li>Topic</li>
-      <li>100</li>
-      <li>200</li>
-      <li>300</li>
-      <li>400</li>
-      <li>500</li>
+    <ul> <!-- Dummy questions previously in class:question were moved to comment in questions.js -->
+      <li id="1_0" onclick="press(this)" state="title">History of Computing</li>
+      <li id="1" onclick="press(this)" state="number">$100</li>
+      <li id="2" onclick="press(this)" state="number">$200</li>
+      <li id="3" onclick="press(this)" state="number">$300</li>
+      <li id="4" onclick="press(this)" state="number">$400</li>
+      <li id="5" onclick="press(this)" state="number">$500</li>
     </ul>
-    <ul>
-      <li>History of Computing</li>
-      <li>100<div class="question">The year Windows 95 was released.</div></li>
-      <li>200<div class="question">The first form of external digital file storage.</div></li>
-      <li>300<div class="question">The year JavaScript became available</div></li>
-      <li>400<div class="question">The decade UNIX became available</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
+    <ul> <!-- Dummy questions previously in class:question were moved to comment in questions.js -->
+      <li id="2_0" onclick="press(this)" state="title">Terminal</li>
+      <li id="6" onclick="press(this)" state="number">$100</li>
+      <li id="7" onclick="press(this)" state="number">$200</li>
+      <li id="8" onclick="press(this)" state="number">$300</li>
+      <li id="9" onclick="press(this)" state="number">$400</li>
+      <li id="10" onclick="press(this)" state="number">$500</li>
     </ul>
-    <ul>
-      <li>BC CIS</li>
-      <li>100<div class="question">The language taught in the Intro Programming Sequence</li>
-      <li>200<div class="question">CIS Office Location (name the building)</li>
-      <li>300<div class="question">CIS Office Room Number</div></li>
-      <li>400<div class="question">Intentionally left blank</div></li>
-      <li>500<div class="question">Intentionally left blank</div></li>
+    <ul> <!-- Dummy questions previously in class:question were moved to comment in questions.js -->
+      <li id="3_0" onclick="press(this)" state="title">Version Control</li>
+      <li id="11" onclick="press(this)" state="number">$100</li>
+      <li id="12" onclick="press(this)" state="number">$200</li>
+      <li id="13" onclick="press(this)" state="number">$300</li>
+      <li id="14" onclick="press(this)" state="number">$400</li>
+      <li id="15" onclick="press(this)" state="number">$500</li>
     </ul>
-
-    <div id="fruits"></div>
-
+    <ul> <!-- Dummy questions previously in class:question were moved to comment in questions.js -->
+      <li id="4_0" onclick="press(this)" state="title">Regular Expressions</li>
+      <li id="16" onclick="press(this)" state="number">$100</li>
+      <li id="17" onclick="press(this)" state="number">$200</li>
+      <li id="28" onclick="press(this)" state="number">$300</li>
+      <li id="19" onclick="press(this)" state="number">$400</li>
+      <li id="20" onclick="press(this)" state="number">$500</li>
+    </ul>
+    <ul> <!-- Dummy questions previously in class:question were moved to comment in questions.js -->
+      <li id="5_0" onclick="press(this)" state="title">SQL</li>
+      <li id="21" onclick="press(this)" state="number">$100</li>
+      <li id="22" onclick="press(this)" state="number">$200</li>
+      <li id="23" onclick="press(this)" state="number">$300</li>
+      <li id="24" onclick="press(this)" state="number">$400</li>
+      <li id="25" onclick="press(this)" state="number">$500</li>
+    </ul>
   </body>
 </html>
 
@@ -44,7 +57,7 @@
 <script>
 var items = document.getElementsByTagName("li");
 for (var i = 0; i < items.length; i++) {
-  items[i].addEventListener("click",function(e) {
+  items[i].addEventListener("press",function(e) {
   if(e.target.children.length > 0){
     console.log("display content");
     e.target.children[0].classList.add('fullscreen');

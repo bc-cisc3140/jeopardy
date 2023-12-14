@@ -41,6 +41,29 @@ app.get("/api/fruit/:id", (req, res, next) => {
       });
 });
 
+// custom query for the prompt and answer
+app.get('/query', (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    res.status(400).json({error: 'Query param required.'});
+    return;
+  }
+
+  console.log(query);
+
+  db.all(query, [], (err, elem) => {
+    if (err) {
+      res.status(400).json({ "error": err.message });
+      return;
+    }
+    res.json({
+      "message": "success",
+      "data": elem
+    });
+  });
+});
+
 // Root endpoint
 app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
